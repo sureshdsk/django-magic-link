@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Magic Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <style>
+        .xtable{padding:10% 0;}
+        .xcell{width:320px; margin:0 auto;}
+        input[type=email]{width:100%;}
+    </style>
+</head>
+<body>
+
+<div class="xtable">
+    <div class="xcell">
+        <div class="card text-xs-center card-inverse card-primary">
+          <div class="card-header">
+            Magic Login
+          </div>
+          <div class="card-block">
+            <form class="form" action="{% url 'customers-login' %}" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="email" value="" id="emailId" name="emailId" class="form-control" placeholder="Email Address" required>
+              </div>
+              <button class="btn btn-danger" type="submit">Send Me Magic Link</button>
+            </form>
+          </div>
+        </div>
+
+        {% if message %}
+            <div class="card card-block card-inverse card-success text-xs-center">
+                <blockquote class="card-blockquote">
+                  <p>Magic Link sent to your email address.</p>
+                </blockquote>
+              </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+</body>
+</html>
