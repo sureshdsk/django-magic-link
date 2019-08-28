@@ -22,7 +22,7 @@ def login_page(request):
         send_mail(
             'Django Magic Link',
             html_message,
-            'wishlist@kissflow.com',
+            'admin@website.com',
             [email],
             fail_silently=False,
             html_message = html_message
